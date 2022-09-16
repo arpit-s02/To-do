@@ -1,9 +1,9 @@
-// require express to use it
-const express = require('express');
+
+const express = require('express'); 
 const app = express();
 const port = 8000;
 
-app.use('/', require('./routes/index')); // to use the router 
+app.use('/', require('./routes/index')); // middleware to use router
 
 app.listen(port, (err) => {
     if(err){
