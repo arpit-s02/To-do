@@ -2,6 +2,8 @@ const express = require('express');
 const port = 8000;
 const bodyParser = require('body-parser');
 const db = require('./config/mongoose');
+// to access the collection and its schema
+const Task = require('./models/task');
 
 const app = express();
 
