@@ -2,8 +2,35 @@
 <html>
     <head>
         <title> <%= title %></title>
+
+        <link rel = "stylesheet" href = "/css/home.css">
     </head>
     <body>
-        <h1> To-Do </h1>
+        <h1> To-Do App </h1>
+        
+        <form action="">
+            <div id = "task-description">
+                <label for="task" > TASK </label>
+                <input type="text" name = "task" placeholder="write the task" id = "task">
+            </div>
+            
+            <div id = "task-info">
+                <label for="category" > CATEGORY </label>
+                <select name="category" id = "category">
+                    <option value="personal"> Personal </option>
+                    <option value="work"> Work </option>
+                    <option value="schooling"> Schooling </option>
+                </select>
+                <label for="date" > DATE </label>
+                <input type="date" name="date" id="date">
+            </div>
+
+            <div id = "submit-delete">
+                <button type="submit"> Add </button>
+            </div>
+            
+        </form>
+
+        <script type="text/javascript" src = "/js/home.js"></script>
     </body>
 </html>

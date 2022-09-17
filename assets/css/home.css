@@ -1,0 +1,19 @@
+body{
+    font-family: sans-serif;
+    width: auto;
+}
+
+h5{
+    margin-bottom: 1px;
+}
+
+form{
+    /* margin: 10px 0px; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+}
+
+form div{
+    margin-bottom: 10px;
+}
