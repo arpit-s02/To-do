@@ -3,33 +3,93 @@
     <head>
         <title> <%= title %></title>
 
+        <script src="https://kit.fontawesome.com/7dbb4126aa.js" crossorigin="anonymous"></script>
+
         <link rel = "stylesheet" href = "/css/home.css">
     </head>
     <body>
-        <h1> To-Do App </h1>
+        <div id = "main">
+            <h1> To-Do App </h1>
         
-        <form action="/add-task" method="post">
-            <div id = "task-description">
-                <label for="task" > TASK </label>
-                <input type="text" name = "task" placeholder="write the task" id = "task">
-            </div>
-            
-            <div id = "task-info">
-                <label for="category" > CATEGORY </label>
-                <select name="category" id = "category">
-                    <option value="personal"> Personal </option>
-                    <option value="work"> Work </option>
-                    <option value="schooling"> Schooling </option>
-                </select>
-                <label for="date" > DATE </label>
-                <input type="date" name="date" id="date">
-            </div>
+            <form action="/add-task" method="post">
+                <div id = "task-description">
+                    <label for="task" > TASK </label>
+                    <!-- <h5> TASK </h5> -->
+                    <input type="text" name = "task" placeholder="write the task" id = "task">
+                </div>
+                
+                <div id = "task-info">
+                    <div id = "category-info">
+                        <label for="category" > CATEGORY </label>
+                        <select name="category" id = "category">
+                            <option value="Personal"> Personal </option>
+                            <option value="Work"> Work </option>
+                            <option value="School"> School </option>
+                        </select>
+                    </div>
+                    <div id = "date-info">
+                        <label for="date" > DATE </label>
+                        <input type="date" name="date" id="date">
+                    </div>
+                    
+                </div>
+    
+                <div class = "submit-delete">
+                    <button type="submit"> 
+                        <i class="fa-solid fa-plus"></i> 
+                        <span> Add </span> 
+                    </button>
+                </div>
+            </form>
 
-            <div id = "submit-delete">
-                <button type="submit"> Add </button>
+            <a href="/delete-task" class = "submit-delete">
+                <button style="background-color: red;">
+                    <i class="fa-solid fa-trash"></i>
+                    <span> Delete </span> 
+                </button>
+            </a>
+    
+            <div id = "details">
+                <ul>
+                    <% for(let i of tasks){ %>
+                        <li class = "task-display">
+                            <div id = "display-description-date">
+                                <div id = "display-description">
+                                    <input type="checkbox" name="description" id="description"> 
+                                    <span class = "line-through"> <%= i.description %> </span>
+                                    <!-- <label for="description"> <%= i.description %> </label> -->
+                                    
+                                </div>
+                                <div id = "display-date">
+                                    <% var date = i.date %>
+                                    <% date = date.toString(); %>
+                                    <% date = date.slice(0, 10); %>
+                                    <%= date %>
+                                </div>
+                                
+                            </div>
+                            <div id = "display-category">
+                                <% if(i.category == 'Work'){ %>
+                                    <div class = "work">
+                                        <span> Work </span>
+                                    </div>
+                                <% }else if(i.category == 'Personal'){ %>
+                                    <div class = "personal">
+                                        <span> Personal </span>
+                                    </div>
+                                <% } else if(i.category == 'School'){ %>
+                                    <div class = "school">
+                                        <span> School </span>
+                                    </div>
+                                <% } %>
+                            </div>
+                            
+                        </li>
+                    <% } %>
+                </ul>
             </div>
-            
-        </form>
+        </div>
+        
 
         <script type="text/javascript" src = "/js/home.js"></script>
     </body>
