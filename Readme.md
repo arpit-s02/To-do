@@ -1,0 +1,1 @@
+A To Do app which can add different tasks and delete multiple tasks
