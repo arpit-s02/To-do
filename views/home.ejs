@@ -25,10 +25,12 @@
                             <option value="Personal"> Personal </option>
                             <option value="Work"> Work </option>
                             <option value="School"> School </option>
+                            <option value="Other"> Other </option>
+
                         </select>
                     </div>
                     <div id = "date-info">
-                        <label for="date" > DATE </label>
+                        <label for="date" > DUE DATE </label>
                         <input type="date" name="date" id="date" required>
                     </div>
                     
@@ -59,7 +61,7 @@
                                     </div>
                                     <div id = "display-description">
                                         
-                                        <span class = "description"> <%= i.description %> </span>
+                                        <span class = "description line-through"> <%= i.description %> </span>
 
                                         <% var date = i.date %>
                                         <% date = date.toString(); %>
@@ -82,6 +84,10 @@
                                     <% } else if(i.category == 'School'){ %>
                                         <div class = "school">
                                             <span> School </span>
+                                        </div>
+                                    <% } else if(i.category == 'Other'){ %>
+                                        <div class = "other">
+                                            <span> Other </span>
                                         </div>
                                     <% } %>
                                 </div>

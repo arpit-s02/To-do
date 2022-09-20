@@ -1,7 +1,7 @@
 body{
     font-family: sans-serif;
     width: auto;
-    background-color: darkblue;
+    background-color: brown;
 }
 
 h5{
@@ -59,10 +59,6 @@ label{
     font-weight: bold;
     font-family: cursive;
 }
-
-/* #task:focus{
-    outline: none;
-} */
 
 #task-info{
     display: flex;
@@ -213,7 +209,17 @@ input[type=checkbox]:checked + .line-through{
     justify-content: center;
     align-items: center;
     margin: 0px 10px;
+}
 
+.other{
+    height: 40px;
+    width: 75px;
+    background-color: cadetblue;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 10px;
 }
 
 .list{
