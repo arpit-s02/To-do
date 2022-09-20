@@ -12,6 +12,6 @@ router.get('/', homeController.home); // for '/' request
 
 router.post('/add-task', taskController.add_task);
 
-router.get('/delete-task', deleteController.delete);
+router.get('/delete-tasks', deleteController.delete);
 
 module.exports = router;

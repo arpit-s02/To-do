@@ -13,7 +13,6 @@ module.exports.add_task = (req, res) => {
             console.log('error in creating task', err);
             return;
         }
-        console.log('*******', newTask);
         return res.redirect('back');
     });
 }

@@ -25,7 +25,7 @@ form div{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: white;
+    background-color: hsl(201deg 100% 74%);
     width: fit-content;
     margin: auto;
     
@@ -39,6 +39,7 @@ form div{
     padding: 5px 0px;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
+    background-color: white;
 }
 
 #task{
@@ -54,6 +55,11 @@ form div{
     margin: auto;
 }
 
+label{
+    font-weight: bold;
+    font-family: cursive;
+}
+
 /* #task:focus{
     outline: none;
 } */
@@ -66,7 +72,7 @@ form div{
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     padding: 5px 15px;
-    
+    background-color: white;
 }
 
 #category-info, #date-info{
@@ -79,6 +85,7 @@ form div{
 select, input{
     font-size: 1rem;
     border: 0px;
+    font-family: cursive;
 }
 
 select, input:focus{
@@ -94,13 +101,30 @@ select, input:focus{
     /* background-color: red; */
 }
 
-.submit-delete button{
+.buttons{
+    display: flex;
+
+}
+
+.add-button{
     display: flex;
     width: 75px;
     height: 35px;
     justify-content: space-around;
     align-items: center;
     background-color: black;
+    color: white;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.delete-button{
+    display: flex;
+    width: 75px;
+    height: 35px;
+    justify-content: space-around;
+    align-items: center;
+    background-color: red;
     color: white;
     cursor: pointer;
     margin: 5px;
@@ -114,20 +138,43 @@ select, input:focus{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 1px solid black;
+    /* border-top: 1px solid black; */
     /* border-bottom: 1px solid black; */
-    width: 90%;
-
+    width: 92%;
+    background-color: brown;
+    margin-bottom: 18px;
+    border-radius: 10px;
 }
 
 #display-description-date{
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
+    align-items: center;
+    margin: 10px 10px;
+    height: 100%;
+    color: ghostwhite;
 }
 
-#display-description, #display-date, #display-category{
+#display-category{
+    margin: 0px;
+}
+
+#display-description{
     margin: 5px;
     margin-right: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.description{
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 3px;
+}
+
+.date{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 input[type=checkbox]:checked + .line-through{
@@ -137,21 +184,24 @@ input[type=checkbox]:checked + .line-through{
 .personal{
     height: 40px;
     width: 75px;
-    background-color: hsl(218deg 52% 49%);
+    background-color: #007ec7;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0px 10px;
 }
 
 .work{
     height: 40px;
     width: 75px;
-    background-color: hsl(41deg 100% 47%);
+    background-color: purple;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0px 10px;
+
 }
 
 .school{
@@ -162,4 +212,14 @@ input[type=checkbox]:checked + .line-through{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0px 10px;
+
+}
+
+.list{
+    width: 100%;
+}
+
+.custom-checkbox{
+    margin: 0px;
 }

@@ -15,7 +15,7 @@
                 <div id = "task-description">
                     <label for="task" > TASK </label>
                     <!-- <h5> TASK </h5> -->
-                    <input type="text" name = "task" placeholder="write the task" id = "task">
+                    <input type="text" name = "task" placeholder="write the task" id = "task" required>
                 </div>
                 
                 <div id = "task-info">
@@ -29,64 +29,66 @@
                     </div>
                     <div id = "date-info">
                         <label for="date" > DATE </label>
-                        <input type="date" name="date" id="date">
+                        <input type="date" name="date" id="date" required>
                     </div>
                     
                 </div>
     
-                <div class = "submit-delete">
-                    <button type="submit"> 
+                <div>
+                    <button type="submit" class = "add-button"> 
                         <i class="fa-solid fa-plus"></i> 
                         <span> Add </span> 
                     </button>
                 </div>
             </form>
-
-            <a href="/delete-task" class = "submit-delete">
-                <button style="background-color: red;">
-                    <i class="fa-solid fa-trash"></i>
-                    <span> Delete </span> 
-                </button>
-            </a>
-    
             <div id = "details">
-                <ul>
-                    <% for(let i of tasks){ %>
-                        <li class = "task-display">
-                            <div id = "display-description-date">
-                                <div id = "display-description">
-                                    <input type="checkbox" name="description" id="description"> 
-                                    <span class = "line-through"> <%= i.description %> </span>
-                                    <!-- <label for="description"> <%= i.description %> </label> -->
-                                    
+                <form action="/delete-tasks" method="get">
+                    <div class = "buttons">
+                        <button type = "submit" class = "delete-button">
+                            <i class="fa-solid fa-trash"></i>
+                            <span> Delete </span> 
+                        </button>
+                    </div>
+                    
+                    <ul class = "list">
+                        <% for(let i of tasks){ %>
+                            <li class = "task-display">
+                                <div id = "display-description-date">
+                                    <div class = "custom-checkbox">
+                                        <input type="checkbox" name = "item" value = "<%= i._id%>">
+                                    </div>
+                                    <div id = "display-description">
+                                        
+                                        <span class = "description"> <%= i.description %> </span>
+
+                                        <% var date = i.date %>
+                                        <% date = date.toString(); %>
+                                        <% date = date.slice(0, 10); %>
+                                        <span class = "date">
+                                            <i class="fa-solid fa-calendar-days"></i>
+                                            <%= date %>
+                                        </span>
+                                    </div>
                                 </div>
-                                <div id = "display-date">
-                                    <% var date = i.date %>
-                                    <% date = date.toString(); %>
-                                    <% date = date.slice(0, 10); %>
-                                    <%= date %>
+                                <div id = "display-category">
+                                    <% if(i.category == 'Work'){ %>
+                                        <div class = "work">
+                                            <span> Work </span>
+                                        </div>
+                                    <% }else if(i.category == 'Personal'){ %>
+                                        <div class = "personal">
+                                            <span> Personal </span>
+                                        </div>
+                                    <% } else if(i.category == 'School'){ %>
+                                        <div class = "school">
+                                            <span> School </span>
+                                        </div>
+                                    <% } %>
                                 </div>
-                                
-                            </div>
-                            <div id = "display-category">
-                                <% if(i.category == 'Work'){ %>
-                                    <div class = "work">
-                                        <span> Work </span>
-                                    </div>
-                                <% }else if(i.category == 'Personal'){ %>
-                                    <div class = "personal">
-                                        <span> Personal </span>
-                                    </div>
-                                <% } else if(i.category == 'School'){ %>
-                                    <div class = "school">
-                                        <span> School </span>
-                                    </div>
-                                <% } %>
-                            </div>
-                            
-                        </li>
-                    <% } %>
-                </ul>
+                            </li>
+                        <% } %>
+                    </ul>
+                </form>
             </div>
         </div>
         
